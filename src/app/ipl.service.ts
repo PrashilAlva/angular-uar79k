@@ -13,7 +13,7 @@ export class IplService {
     return this.http.get(url);
   }
 
-  getPlaysersByTeamName(teamname):Observable<any>{
+  getPlayersByTeamName(teamname):Observable<any>{
     let url=`${this.baseUrl}team/${teamname}`;
     return  this.http.get(url);
   }
