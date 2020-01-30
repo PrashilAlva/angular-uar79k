@@ -1,3 +1,11 @@
-<p>
-  Home Works
-  </p>
+<div class="row">
+  <h1>{{message}}</h1>
+  </div>
+  <div class="row">
+  <h1>Teams - IPL2020</h1>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-primary btn-block" *ngFor="let teamName of teamNames">
+      {{teamName}}
+    </button>
+  </div>
