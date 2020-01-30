@@ -6,9 +6,32 @@
       <option *ngFor="let team of teamNames">{{team}}</option>
     </select>  
     </div>
+    <div class="col md-8">
+    </div>
+    </div>
+    <div class="row mt-4 ml-3">
     <div *ngIf="players && players.length > 0">
-      
+      <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Team</th>
+      <th scope="col">Name</th>
+      <th scope="col">Role</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr  *ngFor="let player of players">
+        <th scope="row">{{player["label"]}}</th>
+        <td>{{player["player"]}}</td>
+        <td>{{player["role"]}}</td>
+        <td>{{player["price"]}}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+    </div>
     </div>
 
   <div class="col md-4"></div>
-  </div>

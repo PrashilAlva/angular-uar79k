@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
       this.iplService.getPlayersByTeamName(this.teamName)
       .subscribe(res=>{
           this.players = res["players"];
+          console.log(this.players)
       })
     }
   }
