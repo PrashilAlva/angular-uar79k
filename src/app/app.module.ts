@@ -9,6 +9,7 @@ import {RouterModule,Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TeamComponent } from './team/team.component';
 import { IplService } from './ipl.service';
+import {HttpClientModule} from '@angular/common/http';
 const rooutes:Routes=[
 {
   path:"",
@@ -26,6 +27,7 @@ component:TeamComponent
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ,
+  HttpClientModule,
 
   RouterModule.forRoot(rooutes)
   

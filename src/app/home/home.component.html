@@ -1,12 +1,14 @@
 <div class="row mt-3">
   <div class="col md-8">
     <h1>{{message}}</h1>
-    <select class="form-control">
+    <select class="form-control" (change)="getPlayerOfTeam($event)">
       <option value="" disabled>Select Team</option>
       <option *ngFor="let team of teamNames">{{team}}</option>
     </select>  
     </div>
-  
+    <div *ngIf="players && players.length > 0">
+      
+    </div>
 
   <div class="col md-4"></div>
   </div>
