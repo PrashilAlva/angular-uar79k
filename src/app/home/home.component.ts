@@ -34,7 +34,10 @@ export class HomeComponent implements OnInit {
   console.log("hELLO")
   }
   onChartSelect(event:ChartSelectEvent){
-    console.log(event);
+    let role=event.selectedRowFormattedValues[0];
+    this.iplService.getPlayersByTeamAndRole(this.teamName,role).subscribe(res=>{
+      console.log(res["players"]);
+    })
   }
 
 }
