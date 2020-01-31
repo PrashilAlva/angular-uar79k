@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IplService}  from '../ipl.service';
+import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit {
   teamNames;
   teamName;
   players;
-  charts;
+  pieChart:GoogleChartInterface;
+  tableChart:GoogleChartInterface;
   constructor(private iplService:IplService) { }
 
   ngOnInit() {
@@ -25,18 +27,48 @@ export class HomeComponent implements OnInit {
       this.iplService.getPlayersByTeamName(this.teamName)
       .subscribe(res=>{
           this.players = res["players"];
-          console.log(this.players)
+          console.log(this.players);
+          this.showRoleCharts(this.players);
       })
-    }
-    
+    } 
   }
+
+
   showRoleCharts(data){
-  console.log("hELLO")
+  this.pieChart={
+    chartType:"PieChart",
+    dataTable:data,
+    options: {
+      title:'Players',
+      highlightOnMouseOver: true,
+      maxDepth: 1,
+      maxPostDepth: 2,
+      minHighlightColor: '#8c6bb1',
+      midHighlightColor: '#9ebcda',
+      maxHighlightColor: '#edf8fb',
+      minColor: '#009688',
+      midColor: '#f7f7f7',
+      maxColor: '#ee8100',
+      headerHeight: 15,
+      showScale: true,
+      height: 200,
+      useWeightedAverageForAggregation: true
+    }
   }
-  onChartSelect(event:ChartSelectEvent){
+  }
+  showTableChart(data){
+    console.log("Hola");
+  }
+  onChartSelect(event){
     let role=event.selectedRowFormattedValues[0];
     this.iplService.getPlayersByTeamAndRole(this.teamName,role).subscribe(res=>{
-      console.log(res["players"]);
+      let players=res["players"];
+      let data=[];
+      data.push(["Name","Team","Role","Prics"])
+      for(let p of players){
+        data.push([p["player"],p["label"],p["role"],p["price"]])
+      }
+      this.showTableChart(data);
     })
   }
 
