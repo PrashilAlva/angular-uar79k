@@ -28,4 +28,9 @@ export class IplService {
     return  this.http.get(url);
   }
 
+  getIPLTeams():Observable<any>{
+    let url=`${this.baseUrl}teams`;
+    return this.http.get(url);
+  }
+
 }
