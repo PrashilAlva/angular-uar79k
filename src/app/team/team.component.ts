@@ -15,7 +15,7 @@ export class TeamComponent implements OnInit {
 
   ngOnInit() {
     this.iplService.getIPLTeams().subscribe(res=>{
-        this.teams = res;
+        this.teams = res["teams"];
     })
   }
 
