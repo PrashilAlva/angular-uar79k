@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IplService}  from '../ipl.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,6 +11,7 @@ export class HomeComponent implements OnInit {
   teamNames;
   teamName;
   players;
+  charts;
   constructor(private iplService:IplService) { }
 
   ngOnInit() {
@@ -26,6 +28,13 @@ export class HomeComponent implements OnInit {
           console.log(this.players)
       })
     }
+    
+  }
+  showRoleCharts(data){
+  console.log("hELLO")
+  }
+  onChartSelect(event:ChartSelectEvent){
+    console.log(event);
   }
 
 }

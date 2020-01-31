@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { TeamComponent } from './team/team.component';
 import { IplService } from './ipl.service';
 import {HttpClientModule} from '@angular/common/http';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+
 const rooutes:Routes=[
 {
   path:"",
@@ -29,10 +31,11 @@ component:TeamComponent
   imports:      [ BrowserModule, FormsModule ,
   HttpClientModule,
 
-  RouterModule.forRoot(rooutes)
+  RouterModule.forRoot(rooutes),
+  Ng2GoogleChartsModule
   
   ],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, HomeComponent, TeamComponent ],
+  declarations: [ AppComponent, HelloComponent, HeaderComponent, HomeComponent, TeamComponent],
   bootstrap:    [ AppComponent ],
   providers: [IplService]
 })

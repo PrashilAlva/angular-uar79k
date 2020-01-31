@@ -18,4 +18,14 @@ export class IplService {
     return  this.http.get(url);
   }
 
+  getTeamRoleStat(teamname):Observable<any>{
+    let url=`${this.baseUrl}team/rolestat/${teamname}`;
+    return  this.http.get(url);
+  }
+
+  getPlayersByTeamAndRole(teamname,role):Observable<any>{
+    let url=`${this.baseUrl}team/${role}/${teamname}`;
+    return  this.http.get(url);
+  }
+
 }
